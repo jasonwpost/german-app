@@ -1,0 +1,22 @@
+<article class="panel panel-default">
+  <div class="panel-body">
+    {{ artikels[0].wort }}
+  </div>
+  <footer class="panel-footer">
+    <div class="input-controls">
+    <div class="">
+      <label>Artikel </label>
+      <form>
+        <input #m type="radio" name="gender" value="Der" (click)="changeanswer(m.value)"> Der <br />
+        <input #f type="radio" name="gender" value="Die" (click)="changeanswer(f.value)"> Die <br />
+        <input #n type="radio" name="gender" value="Das" (click)="changeanswer(n.value)"> Das <br />
+      </form>
+      <p>{{solution}}</p>
+    </div>
+
+    </div>
+    <div class="config">
+
+    </div>
+  </footer>
+</article>
