@@ -6,4 +6,4 @@ This is a new project - right now it just exists as a starting point...
 * Find questions (done)
 * Populate database (done)
 * Have an Angular app that chooses randomly from the database to create the quiz
-* Create first step in quiz - a single page quiz on nouns and their articles.
+* Create first step in quiz - a single page quiz on nouns and their articles. (done)

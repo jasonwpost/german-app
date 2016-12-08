@@ -11,6 +11,8 @@ import { Artikel } from './artikel.model';
 
       *ngFor="let artikel of artikels">
     </ger-artikel>
+
+    placeholder  / {{ artikels.length }}
   </div>
   `
 })

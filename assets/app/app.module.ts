@@ -12,7 +12,8 @@ import { ArtikelListComponent } from "./artikels/artikel-list.component";
       ArtikelListComponent
     ],
     imports: [BrowserModule],
-    bootstrap: [AppComponent]
+    bootstrap: [AppComponent],
+    providers: [ArtikelComponent]
 })
 export class AppModule {
 

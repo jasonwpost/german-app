@@ -9,6 +9,7 @@ import { Artikel } from './artikel.model';
 })
 export class ArtikelComponent {
   @Input() artikel : Artikel;
+
   private answer : string;
   private solution : string;
 
