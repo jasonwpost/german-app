@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Artikel } from './artikel.model';
 
 @Component({
@@ -9,6 +9,7 @@ import { Artikel } from './artikel.model';
 })
 export class ArtikelComponent {
   @Input() artikel : Artikel;
+  @Output() parentChange = new EventEmitter();
 
   private answer : string;
   private solution : string;
@@ -21,6 +22,7 @@ export class ArtikelComponent {
     } else {
       this.solution = "incorrect";
     }
+    this.changeValueInParent();
   }
 
   checkAnswer(){
@@ -29,6 +31,14 @@ export class ArtikelComponent {
     } else {
       return false;
     }
+  }
+
+  changeValueInParent() {
+    //console.log(wort + " " + result);
+   this.parentChange.emit({
+     wort : this.artikel.wort,
+     result : this.solution
+   });
   }
 
   getStyle(){
@@ -42,7 +52,7 @@ export class ArtikelComponent {
   }
 
   constructor() {
-    console.log(this.artikel);
+
   }
 
 
