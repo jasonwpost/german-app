@@ -4,28 +4,36 @@
   </div>
   <footer class="panel-footer">
     <div class="input-controls">
-    <div class="">
-      <label>Artikel </label>
-      <form>
+    <div class="container">
+
+      <label>Artikel</label>
+      <br />
+      <div class="btn-group" data-toggle="buttons">
+        <label class="">
         <input #m type="radio"
-        name="gender" value="Der"
-        (click)="changeanswer(m.value)"
-        > Der
-        <input #f type="radio"
-        name="gender" value="Die"
-        (click)="changeanswer(f.value)"
-        > Die
-        <input #n type="radio"
-        name="gender" value="Das"
-        (click)="changeanswer(n.value)"
-        > Das
-      </form>
-      <p [style.background-color]="getStyle()">{{solution}}</p>
+          name="options" id="opt1" autocomplete="off" value="Der"
+          (click)="changeanswer(m.value)"
+          > Der
+        </label>
+        <label class="">
+          <input #f type="radio"
+          name="options" id="opt2" autocomplete="off" value="Die"
+          (click)="changeanswer(f.value)"
+          >Die
+        </label>
+        <label class="">
+          <input #n type="radio"
+          name="options" id="opt3" autocomplete="off" value="Das"
+          (click)="changeanswer(n.value)"
+          > Das
+        </label>
+      </div>
+
     </div>
 
     </div>
-    <div class="config">
-
+    <div class="config" style="width: 100%;">
+      <div id="result" [style.background-color]="getStyle()">{{solution}}</div>
     </div>
   </footer>
 </article>

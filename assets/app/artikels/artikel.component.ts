@@ -4,7 +4,20 @@ import { Artikel } from './artikel.model';
 @Component({
   selector: 'ger-artikel',
   templateUrl: './artikel.component.html',
-  styles: []
+  styles: [`
+   input {
+      margin: 20px;
+   }
+   #result {
+     //display: inline-block;
+     width: fit-content;
+     margin: 0 auto;
+     padding: 5px;
+     text-align: center;
+
+     border-radius: 25px;
+   }
+  `]
 
 })
 export class ArtikelComponent {
