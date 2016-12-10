@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from "./app.component";
+import { HeaderComponent } from "./header.component";
 import { ArtikelComponent } from "./artikels/artikel.component";
 import { ArtikelListComponent } from "./artikels/artikel-list.component";
 
@@ -9,7 +10,8 @@ import { ArtikelListComponent } from "./artikels/artikel-list.component";
     declarations: [
       AppComponent,
       ArtikelComponent,
-      ArtikelListComponent
+      ArtikelListComponent,
+      HeaderComponent
     ],
     imports: [BrowserModule],
     bootstrap: [AppComponent],

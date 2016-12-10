@@ -46,11 +46,24 @@ export class ArtikelListComponent {
  recalculateScore(){
    this.score = this.marking.reduce(function(a, b) {
   return a + b;
-}, 0);
+  }, 0);
  }
 
+shuffleAndReturnSubsetOfArray(array, numofSubset) {
+  for (var i = array.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+  var subset = array.slice(0, numofSubset);
+  return subset;
+}
+
  constructor(){
+   this.artikels = this.shuffleAndReturnSubsetOfArray(this.artikels, 3);
    this.marking = Array.apply(null, Array(this.artikels.length)).map(Number.prototype.valueOf,0);
+
  }
 
 }
