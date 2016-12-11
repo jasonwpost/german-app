@@ -1,39 +1,50 @@
-<article class="panel panel-default">
-  <div class="panel-body">
-    {{ artikel.wort }}
-  </div>
-  <footer class="panel-footer">
-    <div class="input-controls">
-    <div class="container">
+<article class="panel panel-default" style="border-radius: 40px;">
 
-      <label>Artikel</label>
-      <br />
-      <div class="btn-group" data-toggle="buttons">
-        <label class="">
-        <input #m type="radio"
-          name="options" id="opt1" autocomplete="off" value="Der"
-          (click)="changeanswer(m.value)"
-          > Der
-        </label>
-        <label class="">
-          <input #f type="radio"
-          name="options" id="opt2" autocomplete="off" value="Die"
-          (click)="changeanswer(f.value)"
-          >Die
-        </label>
-        <label class="">
-          <input #n type="radio"
-          name="options" id="opt3" autocomplete="off" value="Das"
-          (click)="changeanswer(n.value)"
-          > Das
-        </label>
+  <footer class="panel-footer" style="border-radius: 40px;">
+    <div class="input-controls">
+    <div class="container" style="height:100%;">
+      <div class="col-md-2">
+        <br />
+        <div class="btn-group" data-toggle="buttons">
+          <label class="">
+          <!-- needs the {{artikel.wort}} in
+            the name field to differentiate between the
+           different artikel components in the list view-->
+          <input #m type="radio"
+            name="options{{artikel.wort}}" id="opt1" autocomplete="off" value="Der"
+            (click)="changeanswer(m.value)"
+            > Der
+          </label><br />
+          <label class="">
+            <input #f type="radio"
+            name="options{{artikel.wort}}" id="opt2" autocomplete="off" value="Die"
+            (click)="changeanswer(f.value)"
+            > Die
+          </label><br />
+          <label class="">
+            <input #n type="radio"
+            name="options{{artikel.wort}}" id="opt3" autocomplete="off" value="Das"
+            (click)="changeanswer(n.value)"
+            > Das
+          </label>
+        </div>
+      </div>
+      <div class="col-md-4" id="wort">
+        <br />
+        <br />
+        <br />
+          <h1>{{ artikel.wort }}</h1>
+      </div>
+      <div class="config" class="col-md-2">
+        <br />
+        <br />
+        <br />
+        <br />
+          <h1 id="result" [style.background-color]="getStyle()">{{this.getSymbol()}}</h1>
+        </div>
       </div>
 
     </div>
 
-    </div>
-    <div class="config" style="width: 100%;">
-      <div id="result" [style.background-color]="getStyle()">{{solution}}</div>
-    </div>
   </footer>
 </article>

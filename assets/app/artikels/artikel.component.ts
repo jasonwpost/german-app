@@ -17,6 +17,10 @@ import { Artikel } from './artikel.model';
 
      border-radius: 25px;
    }
+
+   #wort {
+   border-color:blue;
+   }
   `]
 
 })
@@ -56,13 +60,24 @@ export class ArtikelComponent {
 
   getStyle(){
     if (this.solution == null){
-      return 'white';
+      return 'light-gray';
     } else if (this.solution == "correct"){
-      return 'green';
+      return '#66ff66';
     } else {
       return 'red';
     }
   }
+
+  getSymbol(){
+    if (this.solution == null){
+      return '';
+    } else if (this.solution == "correct"){
+      return '✔';
+    } else {
+      return '✘';
+    }
+  }
+
 
   constructor() {
 

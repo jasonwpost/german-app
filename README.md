@@ -3,12 +3,13 @@
 Test your German grammar skills with this web application built on the MEAN stack
 
 ## To do
-* improve look and feel of artikel component
 * populate mongo database with lots of artikels
+* create a artikel service
 * make a page for adjektive declension testing
 * make a page for case testing
 
 ## Ongoing
+* improve look and feel of artikel component (would like have a better looking button system)
 * Find questions
 * Populate database
 

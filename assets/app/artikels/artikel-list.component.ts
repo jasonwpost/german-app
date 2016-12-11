@@ -5,8 +5,9 @@ import { ArtikelComponent } from './artikel.component';
 @Component({
   selector: 'ger-artikelList',
   template: `
-  <div class="col-md-8 col-md-offset-2">
-  <h2>Artikel Quiz</h2>
+  <div class="col-md-6 col-md-offset-3">
+  <h2 style="text-align: center;">Artikel Quiz</h2>
+  <br />
     <ger-artikel
       [artikel]="artikel"
       *ngFor="let artikel of artikels"
