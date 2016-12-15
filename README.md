@@ -9,7 +9,7 @@ Test your German grammar skills with this web application built on the MEAN stac
 * make a page for case testing
 
 ## Ongoing
-* improve look and feel of artikel component (would like have a better looking button system)
+* improve look and feel of artikel component (would like have a better looking button system)oca
 * Find questions
 * Populate database
 
