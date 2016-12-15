@@ -5,7 +5,7 @@ import { AdjektivComponent } from './adjektiv.component';
 @Component({
   selector: 'ger-akjetivList',
   template: `
-
+  <h1>hello world</h1>
   `,
   styles: []
 })

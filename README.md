@@ -5,11 +5,12 @@ Test your German grammar skills with this web application built on the MEAN stac
 ## To do
 * populate mongo database with lots of artikels
 * create a artikel service
-* make a page for adjektive declension testing
+* make a page for adjektiv declension testing
 * make a page for case testing
+* create home page
 
 ## Ongoing
-* improve look and feel of artikel component (would like have a better looking button system)oca
+* improve look and feel of artikel component (would like have a better looking button system)
 * Find questions
 * Populate database
 
@@ -18,3 +19,5 @@ Test your German grammar skills with this web application built on the MEAN stac
 * Create first step in quiz - a single page quiz on nouns and their articles
 * create a nav bar so other quizzes can be made
 * have the artikel-list component choose a random selection from the database to create the quiz
+* create adjektiv components
+* make the nav bar functional / set up routing

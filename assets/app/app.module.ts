@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { routing } from './app.routing';
+
 import { AppComponent } from "./app.component";
 import { HeaderComponent } from "./header.component";
 import { ArtikelComponent } from "./artikels/artikel.component";
@@ -13,9 +15,11 @@ import { AdjektivListComponent } from "./adjektive/adjektiv-list.component";
       AppComponent,
       ArtikelComponent,
       ArtikelListComponent,
+      AdjektivComponent,
+      AdjektivListComponent,
       HeaderComponent
     ],
-    imports: [BrowserModule],
+    imports: [BrowserModule, routing],
     bootstrap: [AppComponent],
     providers: [ArtikelComponent]
 })

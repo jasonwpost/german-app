@@ -8,8 +8,8 @@ import { Component } from '@angular/core';
     <h1>Deutsch lernen</h1>
     <hr>
       <ul class="nav nav-pills">
-        <li><a href="#">Artikels</a></li>
-        <li><a href="#">Adjektives</a></li>
+        <li routerLinkActive="active"><a [routerLink]="['/artikels']">Artikels</a></li>
+        <li routerLinkActive="active"><a [routerLink]="['/adjektive']">Adjektives</a></li>
         <li><a href="#">Personalpronomen</a></li>
       </ul>
     </nav>
