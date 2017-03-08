@@ -27,27 +27,25 @@ export class ArtikelListComponent {
     new Artikel('Die', 'Kunst'),
     new Artikel('Der', 'Sport')
   ];
-  marking : number[];
+  marking : {};
   score : number = 0;
 
   myValueChange(event) {
-   for (var i = 0; i < this.artikels.length; i++){
-     if (this.artikels[i].wort == event.wort){
-       if(event.result == "correct"){
-         this.marking[i] = 1;
-       } else {
-         this.marking[i] = 0;
-       }
-       break;
-     }
-   }
+  if(event.result == "correct"){
+    this.marking[event.wort] = 1;
+  } else {
+    this.marking[event.wort] = 0;
+  }
+
    this.recalculateScore();
  }
 
  recalculateScore(){
-   this.score = this.marking.reduce(function(a, b) {
-  return a + b;
-  }, 0);
+   var newScore = 0;
+   for (var key in this.marking){
+     newScore += this.marking[key]
+   }
+   this.score = newScore;
  }
 
 shuffleAndReturnSubsetOfArray(array, numofSubset) {
@@ -63,8 +61,9 @@ shuffleAndReturnSubsetOfArray(array, numofSubset) {
 
  constructor(){
    this.artikels = this.shuffleAndReturnSubsetOfArray(this.artikels, 3);
-   this.marking = Array.apply(null, Array(this.artikels.length)).map(Number.prototype.valueOf,0);
-
+   for (var artikel in this.artikels){
+     this.marking[artikel] = 0;
+   }
  }
 
 }
