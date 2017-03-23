@@ -27,43 +27,40 @@ export class ArtikelListComponent {
     new Artikel('Die', 'Kunst'),
     new Artikel('Der', 'Sport')
   ];
-  marking : {};
+  marking : number [];
   score : number = 0;
 
   myValueChange(event) {
-  if(event.result == "correct"){
-    this.marking[event.wort] = 1;
-  } else {
-    this.marking[event.wort] = 0;
-  }
+    let index = this.artikels.map(function(e) { return e.wort;}).indexOf(event.wort);
 
-   this.recalculateScore();
+    if(event.result == "correct"){
+      this.marking[index] = 1;
+    } else {
+      this.marking[index] = 0;
+    }
+    console.log(this.marking);
+    this.recalculateScore();
  }
 
  recalculateScore(){
-   var newScore = 0;
-   for (var key in this.marking){
-     newScore += this.marking[key]
-   }
-   this.score = newScore;
+   this.score = this.marking.reduce((a, b) => a + b, 0);
  }
 
 shuffleAndReturnSubsetOfArray(array, numofSubset) {
-  for (var i = array.length - 1; i > 0; i--) {
-      var j = Math.floor(Math.random() * (i + 1));
-      var temp = array[i];
+  for (let i = array.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * (i + 1));
+      let temp = array[i];
       array[i] = array[j];
       array[j] = temp;
     }
-  var subset = array.slice(0, numofSubset);
+  let subset = array.slice(0, numofSubset);
   return subset;
 }
 
  constructor(){
    this.artikels = this.shuffleAndReturnSubsetOfArray(this.artikels, 3);
-   //for (var wort in this.artikels){
-     //this.marking[wort] = 0;
-   //}
+   this.marking = this.artikels.map(i => 0);
+   console.log(this.marking)
  }
 
 }
