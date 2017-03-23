@@ -3,3 +3,4 @@
 npm.debug
 /public/js
 .DS_Store
+/config
