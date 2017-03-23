@@ -61,9 +61,9 @@ shuffleAndReturnSubsetOfArray(array, numofSubset) {
 
  constructor(){
    this.artikels = this.shuffleAndReturnSubsetOfArray(this.artikels, 3);
-   for (var artikel in this.artikels){
-     this.marking[artikel] = 0;
-   }
+   //for (var wort in this.artikels){
+     //this.marking[wort] = 0;
+   //}
  }
 
 }
