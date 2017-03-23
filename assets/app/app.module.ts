@@ -10,6 +10,12 @@ import { ArtikelListComponent } from "./artikels/artikel-list.component";
 import { AdjektivComponent } from "./adjektive/adjektiv.component";
 import { AdjektivListComponent } from "./adjektive/adjektiv-list.component";
 
+import { AuthenticationComponent } from "./auth/authentication.component";
+import { LogoutComponent } from "./auth/logout.component";
+import { SignupComponent } from "./auth/signup.component";
+import { SigninComponent } from "./auth/signin.component";
+import { AuthService } from "./auth/auth.service";
+
 @NgModule({
     declarations: [
       AppComponent,
@@ -17,11 +23,15 @@ import { AdjektivListComponent } from "./adjektive/adjektiv-list.component";
       ArtikelListComponent,
       AdjektivComponent,
       AdjektivListComponent,
-      HeaderComponent
+      HeaderComponent,
+      AuthenticationComponent,
+      LogoutComponent,
+      SignupComponent,
+      SigninComponent
     ],
     imports: [BrowserModule, routing],
     bootstrap: [AppComponent],
-    providers: [ArtikelComponent]
+    providers: [AuthService]
 })
 export class AppModule {
 
