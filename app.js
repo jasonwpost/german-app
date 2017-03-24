@@ -12,7 +12,7 @@ const mongoose = require('mongoose');
 const appRoutes = require('./routes/app');
 const userRoutes = require('./routes/user');
 
-var app = express();
+const app = express();
 
 mongoose.connect(config.database);
 
