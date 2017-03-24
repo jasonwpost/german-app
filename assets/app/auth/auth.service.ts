@@ -32,4 +32,8 @@ export class AuthService {
     isLoggedIn() {
         return localStorage.getItem('token') !== null;
     }
+
+    getUserId() {
+      return localStorage.getItem('userId');
+    }
 }
