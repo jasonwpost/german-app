@@ -7,7 +7,8 @@ var schema = new Schema({
     lastName: {type: String, required: true},
     password: {type: String, required: true},
     email: {type: String, required: true, unique: true},
-    artikels: [{type: Schema.Types.ObjectId, ref: 'Artikel'}] // [] means array of artikels
+    artikels: [{type: Schema.Types.ObjectId, ref: 'Artikel'}], // [] means array of artikels
+    artikelGrades: [Number] // use artikel index to declare grades
 });
 
 schema.plugin(mongooseUniqueValidator);
