@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Artikel } from './artikel.model';
 import { ArtikelComponent } from './artikel.component';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'ger-artikelList',
@@ -38,7 +39,9 @@ export class ArtikelListComponent {
     } else {
       this.marking[index] = 0;
     }
-    console.log(this.marking);
+    if (this.authservice.isLoggedIn()){
+        console.log("logged in");
+    }
     this.recalculateScore();
  }
 
@@ -57,7 +60,7 @@ shuffleAndReturnSubsetOfArray(array, numofSubset) {
   return subset;
 }
 
- constructor(){
+ constructor(private authservice: AuthService){
    this.artikels = this.shuffleAndReturnSubsetOfArray(this.artikels, 3);
    this.marking = this.artikels.map(i => 0);
    console.log(this.marking)
