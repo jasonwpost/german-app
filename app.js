@@ -11,6 +11,7 @@ const mongoose = require('mongoose');
 
 const appRoutes = require('./routes/app');
 const userRoutes = require('./routes/user');
+const assessementRoutes = require('./routes/assessment');
 
 const app = express();
 
@@ -35,6 +36,7 @@ app.use(function(req, res, next){
   next();
 });
 
+app.use('/assessement', assessementRoutes);
 app.use('/user', userRoutes);
 app.use('/', appRoutes);
 

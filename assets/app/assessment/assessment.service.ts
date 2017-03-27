@@ -19,7 +19,7 @@ export class AssessmentService {
     const body = JSON.stringify(newAssessment);
     const headers = new Headers({'Content-Type': 'application/json'});
     return this.http.post('http://localhost:3000/assessment', body, {headers: headers})
-        .map((response: Response) => response.json())
+        .map((response: Response) => console.log(response.json()))
         .catch((error: Response) => Observable.throw(error.json()));
   }
 }
