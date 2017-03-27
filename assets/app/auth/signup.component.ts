@@ -32,7 +32,11 @@ export class SignupComponent implements OnInit {
     }
 
     createAssessment(userID){
-      this.assessmentService.create(userID);
+      this.assessmentService.create(userID)
+      .subscribe(
+        data => console.log(data),
+        error => console.error(error)
+      );
     }
 
     ngOnInit() {

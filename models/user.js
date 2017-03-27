@@ -6,9 +6,7 @@ var schema = new Schema({
     firstName: {type: String, required: true},
     lastName: {type: String, required: true},
     password: {type: String, required: true},
-    email: {type: String, required: true, unique: true},
-    artikels: [{type: Schema.Types.ObjectId, ref: 'assessment'}], // [] means array of artikels
-    artikelGrades: [Number] // use artikel index to declare grades
+    email: {type: String, required: true, unique: true}
 });
 
 schema.plugin(mongooseUniqueValidator);

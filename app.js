@@ -36,7 +36,7 @@ app.use(function(req, res, next){
   next();
 });
 
-app.use('/assessement', assessementRoutes);
+app.use('/assessment', assessementRoutes);
 app.use('/user', userRoutes);
 app.use('/', appRoutes);
 
