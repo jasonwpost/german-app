@@ -4,6 +4,8 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { AuthService } from "./auth.service";
 import { User } from "./user.model";
 
+import { AssessmentService } from "../assessment/assessment.service";
+
 @Component({
     selector: 'app-signup',
     templateUrl: './signup.component.html'
@@ -11,9 +13,10 @@ import { User } from "./user.model";
 export class SignupComponent implements OnInit {
     myForm: FormGroup;
 
-    constructor(private authService: AuthService) {}
+    constructor(private authService: AuthService, private assessmentService: AssessmentService) {}
 
     onSubmit() {
+      //let userID: String;
         const user = new User(
             this.myForm.value.email,
             this.myForm.value.password,
@@ -22,10 +25,14 @@ export class SignupComponent implements OnInit {
         );
         this.authService.signup(user)
             .subscribe(
-                data => console.log(data),
+                data => this.createAssessment(data["obj"]["_id"]),
                 error => console.error(error)
             );
         this.myForm.reset();
+    }
+
+    createAssessment(userID){
+      this.assessmentService.create(userID);
     }
 
     ngOnInit() {
