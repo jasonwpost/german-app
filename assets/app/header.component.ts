@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'ger-header',
   template: `
-  <header class="row">
+  <header class="container header">
     <nav class="col-md-8 col-md-offset-2">
     <h1>Vokabular üben</h1>
     <hr>
@@ -15,6 +15,14 @@ import { Component } from '@angular/core';
     </nav>
   </header>
 
-  `
+  `,
+  styles: [`
+      .header {
+          padding-bottom: 10px;
+      }
+      .nav-pills li {
+          padding-right: 10px;
+      }
+  `]
 })
 export class HeaderComponent {}
