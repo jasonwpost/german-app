@@ -12,7 +12,7 @@ import { AuthService } from '../auth/auth.service';
     <ger-artikel
       [artikel]="artikel"
       *ngFor="let artikel of artikels"
-      (parentChange)="artikelValueChange($event);"
+      (updateArtikel)="artikelValueChange($event);"
       >
     </ger-artikel>
 

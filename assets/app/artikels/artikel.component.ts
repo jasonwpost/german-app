@@ -9,7 +9,6 @@ import { Artikel } from './artikel.model';
       margin: 20px;
    }
    #result {
-     //display: inline-block;
      width: fit-content;
      margin: 0 auto;
      padding: 5px;
@@ -26,28 +25,21 @@ import { Artikel } from './artikel.model';
 })
 export class ArtikelComponent {
   @Input() artikel : Artikel;
-  @Output() parentChange = new EventEmitter();
+  @Output() updateArtikel = new EventEmitter();
 
-  private answer : string;
   private solution : boolean;
 
   changeAnswer(value){
-    this.answer = value;
-    if (this.checkAnswer()){
-      this.solution = true;
-
-    } else {
-      this.solution = false;
-    }
-    this.changeValueInParent();
+    this.solution = this.checkAnswer(value);
+    this.changeAnswerInParentList();
   }
 
-  checkAnswer(){
-    return this.answer == this.artikel.artikel;
+  checkAnswer(answer){
+    return answer == this.artikel.artikel;
   }
 
-  changeValueInParent() {
-   this.parentChange.emit({
+  changeAnswerInParentList() {
+   this.updateArtikel.emit({
      wort : this.artikel.wort,
      result : this.solution
    });
@@ -72,11 +64,5 @@ export class ArtikelComponent {
       return '✘';
     }
   }
-
-
-  constructor() {
-
-  }
-
 
 }
