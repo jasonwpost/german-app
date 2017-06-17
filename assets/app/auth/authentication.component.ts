@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import {Component, DoCheck, ElementRef, OnChanges, ViewChild} from "@angular/core";
 import { AuthService } from "./auth.service";
 import {Router} from "@angular/router";
 
@@ -8,8 +8,8 @@ import {Router} from "@angular/router";
         <header class="container header">
             <nav class="col-md-8 col-md-offset-2" *ngIf="!isLoggedIn()">
                 <ul class="nav nav-pills">
-                    <li routerLinkActive="active"><a [routerLink]="['signup']" (click)="routerClicked=true">Signup</a></li>
-                    <li routerLinkActive="active"><a [routerLink]="['signin']" (click)="routerClicked=true">Signin</a></li>
+                    <li #signup id="signup" routerLinkActive="active"><a [routerLink]="['signup']">Signup</a></li>
+                    <li #signin id="signin" routerLinkActive="active"><a [routerLink]="['signin']">Signin</a></li>
                 </ul>
             </nav>
             <div *ngIf="isLoggedIn()">
@@ -33,12 +33,16 @@ import {Router} from "@angular/router";
     `]
 })
 export class AuthenticationComponent {
+    @ViewChild('signup') signup: ElementRef;
+    @ViewChild('signin') signin: ElementRef;
     private routerClicked = false;
 
     constructor(
         private authService: AuthService,
         private router: Router
-    ) {}
+    ) {
+        document.addEventListener('click', this.manageMenu.bind(this));
+    }
 
     isLoggedIn() {
         return this.authService.isLoggedIn();
@@ -47,5 +51,11 @@ export class AuthenticationComponent {
     onLogout() {
         this.authService.logout();
         this.router.navigate(['/auth', 'signin']);
+    }
+
+    manageMenu() {
+        this.routerClicked =
+            this.signup.nativeElement.classList.contains('active') ||
+            this.signin.nativeElement.classList.contains('active');
     }
 }
