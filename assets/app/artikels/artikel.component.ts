@@ -29,29 +29,24 @@ export class ArtikelComponent {
   @Output() parentChange = new EventEmitter();
 
   private answer : string;
-  private solution : string;
+  private solution : boolean;
 
-  changeanswer(value){
+  changeAnswer(value){
     this.answer = value;
     if (this.checkAnswer()){
-      this.solution = "correct";
+      this.solution = true;
 
     } else {
-      this.solution = "incorrect";
+      this.solution = false;
     }
     this.changeValueInParent();
   }
 
   checkAnswer(){
-    if (this.answer == this.artikel.artikel){
-      return true;
-    } else {
-      return false;
-    }
+    return this.answer == this.artikel.artikel;
   }
 
   changeValueInParent() {
-    //console.log(wort + " " + result);
    this.parentChange.emit({
      wort : this.artikel.wort,
      result : this.solution
@@ -61,7 +56,7 @@ export class ArtikelComponent {
   getStyle(){
     if (this.solution == null){
       return 'light-gray';
-    } else if (this.solution == "correct"){
+    } else if (this.solution){
       return '#66ff66';
     } else {
       return 'red';
@@ -71,7 +66,7 @@ export class ArtikelComponent {
   getSymbol(){
     if (this.solution == null){
       return '';
-    } else if (this.solution == "correct"){
+    } else if (this.solution){
       return '✔';
     } else {
       return '✘';

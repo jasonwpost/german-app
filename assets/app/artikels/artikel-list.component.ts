@@ -12,7 +12,7 @@ import { AuthService } from '../auth/auth.service';
     <ger-artikel
       [artikel]="artikel"
       *ngFor="let artikel of artikels"
-      (parentChange)="myValueChange($event);"
+      (parentChange)="artikelValueChange($event);"
       >
     </ger-artikel>
 
@@ -31,15 +31,15 @@ export class ArtikelListComponent {
   marking : number [];
   score : number = 0;
 
-  myValueChange(event) {
-    let index = this.artikels.map(function(e) { return e.wort;}).indexOf(event.wort);
-    if(event.result == "correct"){
+  artikelValueChange({wort, result}) {
+    let index = this.artikels.map(function(e) { return e.wort;}).indexOf(wort);
+    if(result){
       this.marking[index] = 1;
     } else {
       this.marking[index] = 0;
     }
     if (this.authservice.isLoggedIn()){
-        this.updateUserAssessment(event.wort, event.result);
+        this.updateUserAssessment(wort, result);
     }
     this.recalculateScore();
   }
@@ -52,20 +52,20 @@ export class ArtikelListComponent {
      console.log(this.authservice.getUserId());
    }
 
-  shuffleAndReturnSubsetOfArray(array, numofSubset) {
-    for (let i = array.length - 1; i > 0; i--) {
-        let j = Math.floor(Math.random() * (i + 1));
-        let temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
-      }
-    let subset = array.slice(0, numofSubset);
-    return subset;
-  }
-
   constructor(private authservice: AuthService){
     this.artikels = this.shuffleAndReturnSubsetOfArray(this.artikels, 3);
     this.marking = this.artikels.map(artikel => 0);
+  }
+
+  shuffleAndReturnSubsetOfArray(array, numofSubset) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      const temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+    let subset = array.slice(0, numofSubset);
+    return subset;
   }
 
 }
