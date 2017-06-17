@@ -26,6 +26,10 @@ import {Router} from "@angular/router";
         .header {
             padding-bottom: 10px;
         }
+        
+        .nav-pills li {
+            padding-right: 10px;
+        }
     `]
 })
 export class AuthenticationComponent {

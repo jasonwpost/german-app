@@ -45,7 +45,7 @@ export class ArtikelListComponent {
   }
 
    recalculateScore(){
-     this.score = this.marking.reduce((a, b) => a + b, 0);
+      this.score = this.marking.reduce((count, mark) => count + mark, 0);
    }
 
    updateUserAssessment(wort, result){
