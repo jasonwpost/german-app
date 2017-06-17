@@ -1,27 +1,10 @@
-import {Component, DoCheck, ElementRef, OnChanges, ViewChild} from "@angular/core";
+import {Component, ElementRef, ViewChild} from "@angular/core";
 import { AuthService } from "./auth.service";
 import {Router} from "@angular/router";
 
 @Component({
     selector: 'ger-authentication',
-    template: `
-        <header class="container header">
-            <nav class="col-md-8 col-md-offset-2" *ngIf="!isLoggedIn()">
-                <ul class="nav nav-pills">
-                    <li #signup id="signup" routerLinkActive="active"><a [routerLink]="['signup']">Signup</a></li>
-                    <li #signin id="signin" routerLinkActive="active"><a [routerLink]="['signin']">Signin</a></li>
-                </ul>
-            </nav>
-            <div *ngIf="isLoggedIn()">
-                <div class="col-md-8 col-md-offset-2">
-                    <button class="btn btn-danger" (click)="onLogout()">Logout</button>
-                </div>
-            </div>
-        </header>
-        <div class="row" *ngIf="routerClicked">
-           <router-outlet></router-outlet>
-        </div>
-    `,
+    templateUrl: './authentication.component.html',
     styles: [`
         .header {
             padding-bottom: 10px;
