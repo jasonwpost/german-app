@@ -11,7 +11,6 @@ import { ArtikelListComponent } from "./artikels/artikel-list.component";
 import { AdjektivComponent } from "./adjektive/adjektiv.component";
 import { AdjektivListComponent } from "./adjektive/adjektiv-list.component";
 import { AuthenticationComponent } from "./auth/authentication.component";
-import { LogoutComponent } from "./auth/logout.component";
 import { SignupComponent } from "./auth/signup.component";
 import { SigninComponent } from "./auth/signin.component";
 import { AuthService } from "./auth/auth.service";
@@ -26,7 +25,6 @@ import { AssessmentService } from "./assessment/assessment.service";
       AdjektivListComponent,
       HeaderComponent,
       AuthenticationComponent,
-      LogoutComponent,
       SignupComponent,
       SigninComponent
     ],
