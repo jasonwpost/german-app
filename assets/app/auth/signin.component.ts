@@ -10,12 +10,12 @@ import { AuthService } from "./auth.service";
     templateUrl: './signin.component.html'
 })
 export class SigninComponent {
-    myForm: FormGroup;
+    SignInForm: FormGroup;
 
     constructor(private authService: AuthService, private router: Router) {}
 
     onSubmit() {
-        const user = new User(this.myForm.value.email, this.myForm.value.password);
+        const user = new User(this.SignInForm.value.email, this.SignInForm.value.password);
         this.authService.signin(user)
             .subscribe(
                 data => {
@@ -25,11 +25,11 @@ export class SigninComponent {
                 },
                 error => console.error(error)
             );
-        this.myForm.reset();
+        this.SignInForm.reset();
     }
 
     ngOnInit() {
-        this.myForm = new FormGroup({
+        this.SignInForm = new FormGroup({
             email: new FormControl(null, [
                 Validators.required,
                 Validators.pattern("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")

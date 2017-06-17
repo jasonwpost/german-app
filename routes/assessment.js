@@ -16,8 +16,6 @@ router.post('/', function (req, res, next) {
             });
         }
         var assessment = new Assessment({
-          //artikels: req.body.artikels,
-          //artikelAssessment: req.body.artikelAssessment,
           user: user
         });
         assessment.save(function(err, result){

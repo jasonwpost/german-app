@@ -65,8 +65,7 @@ export class ArtikelListComponent {
 
   constructor(private authservice: AuthService){
     this.artikels = this.shuffleAndReturnSubsetOfArray(this.artikels, 3);
-    this.marking = this.artikels.map(i => 0);
-    console.log(this.marking)
+    this.marking = this.artikels.map(artikel => 0);
   }
 
 }
