@@ -6,7 +6,7 @@ import { Artikel } from '../artikels/artikel.model';
 @Component({
   selector: 'ger-akjetivList',
   template: `
-  <h1>hello world</h1>
+  <h1>Placeholder</h1>
   `,
   styles: []
 })
